@@ -1,0 +1,2 @@
+alert tcp any any -> any any (msg:"TCP traffic detected"; sid:1000008; rev:1;)
+#alert tcp 192.168.0.0/24 any -> any any (msg:"Generic TCP traffic detected"; sid:1000008; rev:2;)

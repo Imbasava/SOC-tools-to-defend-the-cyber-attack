@@ -1,0 +1,1 @@
+alert udp any any -> any any (msg:"UDP traffic detected"; sid:1000009; rev:1;)

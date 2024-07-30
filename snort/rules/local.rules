@@ -1,0 +1,54 @@
+# Copyright 2001-2024 Sourcefire, Inc. All Rights Reserved.
+#
+# This file contains (i) proprietary rules that were created, tested and certified by
+# Sourcefire, Inc. (the "VRT Certified Rules") that are distributed under the VRT
+# Certified Rules License Agreement (v 2.0), and (ii) rules that were created by
+# Sourcefire and other third parties (the "GPL Rules") that are distributed under the
+# GNU General Public License (GPL), v2.
+# 
+# The VRT Certified Rules are owned by Sourcefire, Inc. The GPL Rules were created
+# by Sourcefire and other third parties. The GPL Rules created by Sourcefire are
+# owned by Sourcefire, Inc., and the GPL Rules not created by Sourcefire are owned by
+# their respective creators. Please see http://www.snort.org/snort/snort-team/ for a
+# list of third party owners and their respective copyrights.
+# 
+# In order to determine what rules are VRT Certified Rules or GPL Rules, please refer
+# to the VRT Certified Rules License Agreement (v2.0).
+#
+#-------------
+# LOCAL RULES
+#-------------
+
+#alert ip 192.168.1.100 any -> any 22 (msg:"Unwanted IP accessed the device on port 22"; sid:1000002; rev:1;)
+#alert tcp any any -> any 22 (msg:"SSH Traffic Detected"; sid:1000001; rev:1;)
+#alert udp any any -> any 22 (msg:"SSH connection attempt detected"; sid:1000002; rev:1;)
+#alert tcp any any -> any  22 (msg:"SSH Brute Force Attack"; flags:S; detection_filter:track by_src, count 5, seconds 60; sid:1000002; rev:1;)
+#alert tcp any any -> $HOME_NET any (msg:"Possible SYN Flood Attack Detected"; flags:S; threshold: type both, track by_src, count 70, seconds 10; sid:1000001; rev:1;)
+
+# Brute Force Attack Detection
+#alert tcp any any -> any 22 (msg:"SSH Brute Force Attack"; flow:to_server,established; content:"SSH-"; threshold:type both, track by_src, count 5, seconds 60; sid:1000002; rev:1;)
+#alert tcp any any -> any 22 (msg:"SSH Brute Force Attack"; flow:to_server,established; content:"SSH-"; threshold:type both, track by_src, count 5, seconds 60; sid:1000002; rev:2;)
+
+# DDoS Attack Detection
+#alert tcp any any -> any any (msg:"DDoS SYN Flood"; flags:S; threshold:type both, track by_src, count 50, seconds 10; sid:1000003; rev:1;)
+
+# HTTP Attack Detection
+#alert http any any -> any any (msg:"HTTP Attack Detected"; content:"/admin"; sid:1000004; rev:1;)
+
+
+
+# SSH Brute Force Rule
+#alert tcp any any -> any 22 (msg:"SSH Brute Force Attack"; flow:to_server,established; content:"SSH-"; threshold:type both, track by_src, count 5, seconds 60; sid:1000002; rev:2;)
+
+# DDoS Rule
+#alert tcp any any -> any any (msg:"DDoS SYN Flood"; flags:S; threshold:type both, track by_src, count 50, seconds 10; sid:1000003; rev:2;)
+
+# Generic TCP Traffic Rule
+#alert tcp any any -> any any (msg:"Generic TCP Traffic"; sid:1000008; rev:2;)
+
+
+# SSH Brute Force Rule
+#alert tcp any any -> any 22 (msg:"SSH Brute Force Attempt"; flow:to_server,established; detection_filter:track by_src, count 5, seconds 60; sid:1000002; rev:1;)
+
+alert tcp any any -> $HOME_NET 22 (msg:"SSH Brute Force Attempt"; flow:to_server,established; detection_filter:track by_src, count 5, seconds 60; sid:1000002; rev:1;)
+

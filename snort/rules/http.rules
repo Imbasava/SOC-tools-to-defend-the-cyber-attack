@@ -1,0 +1,2 @@
+#alert tcp any any -> any 80 (msg:"HTTP connection attempt"; sid:1000006; rev:1;)
+#alert tcp any 80 -> any any (msg:"HTTP response"; sid:1000007; rev:1;)

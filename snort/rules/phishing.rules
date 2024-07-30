@@ -1,0 +1,2 @@
+alert tcp any any -> any 80 (msg:"Phishing attempt detected"; content:"http://example-phishing-site.com"; sid:1000001;)
+alert tcp any any -> any 443 (msg:"Phishing attempt detected"; content:"example-phishing-site.com"; sid:1000002;)

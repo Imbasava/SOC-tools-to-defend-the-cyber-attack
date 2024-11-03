@@ -1,13 +1,37 @@
 In this tutorial we are going to detect the Brute Force Attack and prevent it. Aslo detects the DDoS attack.
 
 Brute force attack from the kali linux.
-![image](https://github.com/user-attachments/assets/15d9fe27-a054-4eae-bb18-f383bf74dbed)
-all the traffic ->
-![image](https://github.com/user-attachments/assets/b3cb852f-b17b-435f-95b2-f9805ef7d5b7)
-Banning the ip after continous failed login attempts.
-![image](https://github.com/user-attachments/assets/ea1c9f3f-4aeb-4aff-a364-f18f32404613)
-SOC monitoring
-![image](https://github.com/user-attachments/assets/ae9e2b7f-a259-42b9-9de1-998fd7ff0c42)
+
+## Tutorial: Detecting and Preventing Brute Force & DDoS Attacks
+
+In this tutorial, we detect brute force attacks and prevent them, as well as detect DDoS attacks.
+
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/15d9fe27-a054-4eae-bb18-f383bf74dbed" alt="Brute force attack from Kali Linux">
+	
+    <br><em>Brute force attack from Kali Linux</em>
+</p>
+
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/b3cb852f-b17b-435f-95b2-f9805ef7d5b7" alt="All traffic displayed" width="500">
+	
+    <br><em>All network traffic</em>
+</p>
+
+
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/ea1c9f3f-4aeb-4aff-a364-f18f32404613" alt="Banning IP after failed login attempts">
+	
+    <br><em>Banning the IP after continuous failed login attempts</em>
+</p>
+
+
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/ae9e2b7f-a259-42b9-9de1-998fd7ff0c42" alt="SOC Monitoring">
+	
+    <br><em>SOC Monitoring</em>
+</p>
+
 
 
 SOC Toolset Implementation
